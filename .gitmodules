@@ -4,6 +4,6 @@
 [submodule "contrib/googletest-fused"]
 	path = contrib/googletest-fused
 	url = git@research.com:softwarecenter/googletest-fused.git
-[submodule "IPC/contrib/outpost-core"]
-	path = IPC/contrib/outpost-core
+[submodule "contrib/outpost-core"]
+	path = contrib/outpost-core
 	url = git@research.com:pengting/outpost-core.git
