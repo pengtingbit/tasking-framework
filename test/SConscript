@@ -8,7 +8,7 @@ env = envGlobal.Clone()
 
 files = env.Glob('*.cpp')
 
-env.Append(LIBS=['tasking', 'gtest', 'pthread'])
+env.Append(LIBS=['tasking', 'gtest', 'pthread', 'outpost_rtos'])
 
 if env['PLATFORM'] == 'custom' and 'test' in COMMAND_LINE_TARGETS:
 	print('Unit tests can not run without a platform specific implementation!')

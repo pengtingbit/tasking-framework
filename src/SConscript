@@ -34,7 +34,7 @@ elif envGlobal['PLATFORM'] == 'outpost':
 envGlobal.Append(objects={'tasking': files})
 
 if 'FORMAT' in envGlobal:
-  print "Format source files."
+  print("Format source files.")
   os.system('clang-format -style=file -i *.cpp ../include/*.h ../arch/*/*.cpp ../arch/*/*.h')
 
 library = env.StaticLibrary(target = 'tasking', source = files)
