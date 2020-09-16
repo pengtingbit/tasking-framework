@@ -1,9 +1,11 @@
 [submodule "contrib/scons-build-tools"]
 	path = contrib/scons-build-tools
 	url = git@research.com:softwarecenter/scons-build-tools.git
+	branch = feature/python3
 [submodule "contrib/googletest-fused"]
 	path = contrib/googletest-fused
 	url = git@research.com:softwarecenter/googletest-fused.git
+	branch = master
 [submodule "contrib/outpost-core"]
 	path = contrib/outpost-core
 	url = git@research.com:pengting/outpost-core.git
