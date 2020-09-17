@@ -1,3 +1,11 @@
+[submodule "contrib/scons-build-tools"]
+	path = contrib/scons-build-tools
+	url = git@github.com:DLR-RY/scons-build-tools.git
+	branch = feature/python3
+[submodule "contrib/googletest-fused"]
+	path = contrib/googletest-fused
+	url = git@github.com:pengtingbit/googletest-fused.git
+	branch = master
 [submodule "contrib/outpost-core"]
 	path = contrib/outpost-core
 	url = git@github.com:DLR-RY/outpost-core.git
