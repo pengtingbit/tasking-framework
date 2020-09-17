@@ -4,11 +4,36 @@ import os
 
 Import('envGlobal')
 
+#env = envGlobal.Clone()
+# Build GoogleTest
+googletest = os.path.join(envGlobal['BASEPATH'], 'contrib/googletest-fused')
+envGlobal.Append(CPPPATH=[
+    googletest,
+])
 env = envGlobal.Clone()
+
+env.RemoveFromList('CCFLAGS_warning', [
+    '-Wconversion',
+    '-Wundef',
+    '-Wmissing-declarations',
+    '-Wsign-compare'])
+env.RemoveFromList('CXXFLAGS_warning', [
+    '-Wold-style-cast',
+    '-Wsign-compare'])
+
+files = env.Glob('%s/*.cc' % googletest)
+objects = []
+for file in files:
+    objects.append(env.Object(file))
+envGlobal.Append(objects={'googletest': objects})
+
+libraryGtest = env.StaticLibrary('gtest', objects)
+envGlobal.Install('$BUILDPATH/lib', libraryGtest)
+envGlobal.Append(LIBS=['gtest'])
 
 files = env.Glob('*.cpp')
 
-env.Append(LIBS=['tasking', 'gtest', 'pthread', 'outpost_rtos'])
+env.Append(LIBS=['tasking', 'gtest', 'pthread'])
 
 if env['PLATFORM'] == 'custom' and 'test' in COMMAND_LINE_TARGETS:
 	print('Unit tests can not run without a platform specific implementation!')
